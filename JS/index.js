@@ -61,7 +61,7 @@ function checkNumber(event) {
     results.insertAdjacentHTML("afterbegin", remainingMessage);
 
     if (remainingGuesses <= 0) {
-        let message = `<p>💥 You've run out of guesses! The number was ${numberToGuess}. Starting a new game...</p>`;
+        let message = `<p>💔 You've run out of guesses! The number was ${numberToGuess}. Starting a new game...</p>`;
         results.insertAdjacentHTML("afterbegin", message);
         endGame();
     }

@@ -1,99 +1,132 @@
-*{
+/* Reset and box-sizing */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styling */
 body {
     font-family: monospace;
-    background: #141E30;  
-    background: -webkit-linear-gradient(to right, #243B55, #141E30);  
-    background: linear-gradient(to right, #243B55, #141E30); 
+    background: #141E30;
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);
+    background: linear-gradient(to right, #243B55, #141E30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
-#navbar{
+
+/* Navbar styling */
+#navbar {
     height: 50px;
     width: 100%;
-    background-color: #88c6ec;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container{
+    background-color: #88c6ec;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Main container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
 
+/* Main content styling */
 .main {
-    width: 580px;
     background-color: #efefef;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin-top: 100px ;
-    padding: 30px;   
+    padding: 30px;
     border-radius: 20px;
     display: grid;
     justify-content: center;
     justify-items: center;
+    width: 100%;
+    max-width: 500px;
 }
 
+/* Heading styling */
 .main h1 {
-    font-size: 48px;
+    font-size: 36px;
     margin: 20px;
     text-align: center;
 }
 
+/* Paragraph styling */
 .main p {
     font-size: 20px;
-    line-height: 40px;
-    width: -webkit-fill-available;
+    line-height: 1.5;
+    width: 100%;
     text-align: center;
 }
 
+/* Results styling */
 #results {
     max-height: 225px;
     overflow: auto;
     background-color: hsl(0deg 0% 100% / 44%);
     border-radius: 10px;
-}
-
-.main form {
-    display: grid;
-    grid-template-columns: 1fr 120px;
+    padding: 10px;
     width: 100%;
 }
 
-.main form * {
+/* Form styling */
+.main form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* Reduces the gap between input and button */
+}
+
+.main form input,
+.main form button {
     padding: 10px;
-    margin: 20px;
     font-family: monospace;
     font-weight: bold;
     font-size: 18px;
     border: 3px solid black;
     border-radius: 10px;
-    gap: 10px;
+    width: calc(100% - 40px);
 }
 
-
+/* Button styling */
 .button {
     background-color: #8BC6EC;
     cursor: pointer;
-    padding: 10px;
-    margin: 20px;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: 16px; /* Adjust font size for better fit */
-    border: 3px solid black;
-    border-radius: 10px;
-    width: 150px; /* Adjust width as needed */
-    height: 50px; /* Adjust height as needed */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Center text horizontally */
-    white-space: nowrap; /* Prevent text from wrapping */
+    text-align: center;
+    white-space: nowrap;
+    margin: 10px 0;
+    height: 45px;
+    width: calc(100% - 40px); /* Ensure both buttons have the same width */
+    border-radius: 10px;
 }
 
 .button:hover {
     background-color: #88c9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main h1 {
+        font-size: 28px;
+    }
+
+    .main p {
+        font-size: 18px;
+    }
+
+    .main form input,
+    .main form button {
+        font-size: 16px;
+    }
 }
