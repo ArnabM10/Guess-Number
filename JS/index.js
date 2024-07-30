@@ -54,8 +54,8 @@ function checkNumber(event) {
     remainingGuesses--;
 
     if (enteredNumber == numberToGuess) {
-        let message = `====== New Game Time =====
-                       🎉 Your guess of ${enteredNumber} is correct!
+        let message = `<p>====== New Game Time =====</p>
+                       <p>🎉 Your guess of ${enteredNumber} is correct!</p>
                        -----------------------------------------`;
         proximityHintElem.innerHTML = message; // Display message in proximityHint
         endGame();
