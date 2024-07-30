@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game by Arnab Mann</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <h2>Welcome to Number Guess Game</h2>
+    </nav>
+    
+    <div class="container">
+        <div class="main">
+            <h1>Guess the Number</h1>
+            <form onsubmit="return false">
+                <input placeholder="enter a number" inputmode="decimal" id="numberField" type="number">
+                <input type="submit" value="Guess" id="guessButton" class="button">
+            </form>
+            <button id="newGameButton" class="button" style="display:none;">Start New Game</button>
+            <p id="results"></p>    
+        </div>
+    </div> 
+    <script src="../JS/index.js"></script>
+</body>
+</html>
