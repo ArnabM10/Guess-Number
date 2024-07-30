@@ -5,128 +5,149 @@
     box-sizing: border-box;
 }
 
-/* Body styling */
-body {
-    font-family: monospace;
-    background: #141E30;
-    background: -webkit-linear-gradient(to right, #243B55, #141E30);
-    background: linear-gradient(to right, #243B55, #141E30);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-/* Navbar styling */
+/* Fixed navbar at the top of the page */
 #navbar {
     height: 50px;
     width: 100%;
-    background-color: #88c6ec;
+    background-color: #88c6ec;   
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed; /* Make navbar fixed */
+    top: 0; /* Stick to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
-/* Main container */
+/* Ensure the body has padding at the top to prevent content from hiding under the navbar */
+body {
+    padding-top: 50px; /* Height of the navbar */
+    font-family: monospace;
+    background: #141E30;  
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  
+    background: linear-gradient(to right, #243B55, #141E30); 
+}
+
+/* Fixed-size container with rounded corners */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    width: 100%;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    overflow: hidden; /* Prevent scrollbars */
+    padding: 0 10px; /* Add padding to handle small screen sizes */
 }
 
-/* Main content styling */
+/* Main content box with rounded corners */
 .main {
     background-color: #efefef;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 20px;   
+    border-radius: 20px; /* Round corners */
     display: grid;
     justify-content: center;
     justify-items: center;
-    width: 100%;
-    max-width: 500px;
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Max width */
+    max-height: 80vh; /* Responsive height */
+    overflow: auto; /* Allow scroll if content overflows */
 }
 
-/* Heading styling */
-.main h1 {
-    font-size: 36px;
-    margin: 20px;
+/* Style for the game information sections */
+#gameInfo {
+    margin-top: 20px;
+    font-size: 16px; /* Responsive font size */
     text-align: center;
 }
 
-/* Paragraph styling */
-.main p {
-    font-size: 20px;
-    line-height: 1.5;
-    width: 100%;
-    text-align: center;
-}
-
-/* Results styling */
-#results {
-    max-height: 225px;
-    overflow: auto;
-    background-color: hsl(0deg 0% 100% / 44%);
+#gameInfo p {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #ddd;
     border-radius: 10px;
-    padding: 10px;
-    width: 100%;
+    background-color: #f9f9f9;
 }
 
-/* Form styling */
+/* Adjust form elements */
 .main form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
     width: 100%;
-    gap: 10px; /* Reduces the gap between input and button */
 }
 
-.main form input,
-.main form button {
+.main form input {
     padding: 10px;
+    margin: 10px 0; /* Adjusted margin */
     font-family: monospace;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px; /* Responsive font size */
     border: 3px solid black;
     border-radius: 10px;
-    width: calc(100% - 40px);
 }
 
-/* Button styling */
-.button {
+/* Style for the guess button and new game button */
+#guessButton, #newGameButton {
     background-color: #8BC6EC;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    white-space: nowrap;
-    margin: 10px 0;
-    height: 45px;
-    width: calc(100% - 40px); /* Ensure both buttons have the same width */
-    border-radius: 10px;
+    border-radius: 10px; /* Round shape */
+    padding: 10px;
+    margin: 10px 0; /* Adjusted margin */
+    border: none; /* Remove default border */
+    width: 100%; /* Full width */
 }
 
-.button:hover {
+#guessButton:hover, #newGameButton:hover {
     background-color: #88c9fa;
 }
+/* Ensure hints section is visible and styled properly */
+#hintSection {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+}
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .main h1 {
-        font-size: 28px;
+#hintSection p {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    word-wrap: break-word; /* Ensure long text wraps correctly */
+}
+
+/* Add specific styling for each hint */
+#rangeHint, #proximityHint, #randomHint {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+    .main form {
+        grid-template-columns: 1fr 120px;
     }
-
-    .main p {
-        font-size: 18px;
+    .main form input {
+        margin: 10px;
+        font-size: 18px; /* Increase font size for larger screens */
     }
+    #guessButton, #newGameButton {
+        width: auto; /* Allow buttons to have their default width on larger screens */
+    }
+    #hintSection p {
+        font-size: 18px; /* Larger font size for larger screens */
+    }
+}
 
-    .main form input,
-    .main form button {
-        font-size: 16px;
+@media (max-width: 480px) {
+    #gameInfo {
+        font-size: 14px; /* Smaller font size for very small screens */
+    }
+    .main {
+        padding: 15px; /* Reduced padding for small screens */
+    }
+    #hintSection p {
+        font-size: 14px; /* Smaller font size for very small screens */
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Number Game by Arnab Manna</title>
+    <title>Guess the Number Game by Arnab Mann</title>
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
@@ -16,10 +16,15 @@
             <h1>Guess the Number</h1>
             <form onsubmit="return false">
                 <input placeholder="enter a number" inputmode="decimal" id="numberField" type="number">
-                <input type="submit" value="Guess" id="guessButton" class="button">
+                <input type="submit" value="Guess" id="guessButton">
             </form>
-            <button id="newGameButton" class="button" style="display:none;">Start New Game</button>
-            <p id="results"></p>    
+            <div id="hintSection">
+                <p id="remainingGuesses">Remaining guesses: 10</p>
+                <p id="rangeHint"></p>
+                <p id="proximityHint"></p>
+                <p id="randomHint"></p>
+            </div>
+            <input type="button" value="Start New Game" id="newGameButton" style="display:none;">
         </div>
     </div> 
     <script src="../JS/index.js"></script>
